@@ -1,0 +1,69 @@
+body {
+    font-family: 'Merriweather Sans', sans-serif;
+    /*background-color: #FDF3D7;*/ 
+}
+.body-ofThePage{
+    position: relative;
+    text-align: center;
+}
+.img{
+    position: absolute;
+    width: 200px;
+    top: 180px;
+    right: 70px;
+}
+.header{
+    color:#008C8D;
+    text-align: center;
+}
+.sub-header{
+    font-style: italic;
+    font-size: 18px;
+    text-align: center;
+}
+.user-form{
+    padding: 3%;
+    border-top: 3px solid #1AA3A3;
+    width:70%;
+    margin-left: 5%;
+    margin-top: 3%;
+}
+.user-input{
+    padding: 1%;
+    width: 30%;
+    font-style: italic;
+    border-radius: 5px;
+}
+.user-btn{
+    padding: 1%;
+    margin-left: 1%;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    background-color: #1AA3A3;
+    text-align: center;
+    width: 10%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+.user-list {
+    padding: 3%;
+    text-align: left;
+    border: 2px solid #BDE5E7;
+    border-radius: 5px;
+    width: 60%;
+    margin-left: 5%;
+}
+.one-user {
+    padding: 2%;
+    border-bottom: 2px solid #FDF3D7;
+    width:80%;
+}
+.delete{
+    margin-left: 5%;
+    text-decoration: none; 
+    font-style: italic;
+    font-size: 15px;
+    color: #9A2F1F; 
+}
