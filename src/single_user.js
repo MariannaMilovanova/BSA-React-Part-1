@@ -5,10 +5,10 @@ class SingleUser extends Component {
         return (           
            <li className='one-user'> 
            {this.props.user} 
-                <a href = '#' className='delete'
+                <button className='delete'
                     onClick = {this.props.handleDelete.bind(null, this.props.user)}>
                 delete
-                </a>
+                </button>
             </li>
         )
     }   

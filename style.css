@@ -66,4 +66,8 @@ body {
     font-style: italic;
     font-size: 15px;
     color: #9A2F1F; 
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #FDF3D7;
+    padding: 1%;
 }

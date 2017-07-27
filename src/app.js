@@ -7,15 +7,15 @@ let forShouldComponentUpdateOnly;
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {value: '', users: ['Micky Maus', 'Halk', 'Bob Marley'] };
+        this.state = {value: '', users: [] };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
     }
     handleChange(event) {
-        this.setState({value: event.target.value});
         forShouldComponentUpdateOnly = 1;
+        this.setState({value: event.target.value});
     }
 
     handleSubmit(event) {
