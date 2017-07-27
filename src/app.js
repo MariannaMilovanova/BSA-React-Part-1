@@ -1,36 +1,27 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import UserList from './user_list';
 import Form from './user_add';
-
-let forShouldComponentUpdateOnly;
-
+let id = 0;
+let forShouldComponentUpdateOnly = 0;
+let newUser;
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {value: '', users: [] };
+        this.state = { users: [{id: id, nick: "Mickey Mouse - Party Maker"}] };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
     }
     handleChange(event) {
-        forShouldComponentUpdateOnly = 1;
-        this.setState({value: event.target.value});
+        newUser = event.target.value;
     }
 
-    handleSubmit(event) {
+    handleSubmit(event) {  
         event.preventDefault();
-        let value = this.state.value;
-        for (let user in this.state.users) {
-            if (this.state.users.includes(value)) {
-                alert(`${this.state.value} already present at the party`);
-                this.setState({value: ''})
-                return false;
-            }
-        }
-        let newUser = this.state.users.concat(value);
-
-        this.setState({value: '', users: newUser });
+        this.state.users.push({id: ++id, nick: newUser});
+        this.setState({users: this.state.users});
         forShouldComponentUpdateOnly = 1;
     }
     handleDelete(userToBeDeleted) {
@@ -39,9 +30,10 @@ class App extends Component {
         });
         this.setState({users: userDel});
     }
-     shouldComponentUpdate(nextProps, nextState) {
-        return forShouldComponentUpdateOnly == 1; 
+    shouldComponentUpdate(nextProps, nextState) {
+        return forShouldComponentUpdateOnly == 1
     }
+
     render() {
         return (
             <div className='body-ofThePage'>
@@ -50,8 +42,9 @@ class App extends Component {
                 <img className='img' src='https://raw.githubusercontent.com/MariannaMilovanova/pictures/master/glass.png'/>
                 <Form 
                     handleSubmit = {this.handleSubmit} 
-                    value = {this.state.value}
-                    handleChange = {this.handleChange}/>
+                    handleChange = {this.handleChange}
+                    users = {this.state.users}
+                    />
                 <UserList 
                     handleDelete = {this.handleDelete}
                     users = {this.state.users} />
